@@ -3,11 +3,11 @@ name: Python CI
 on:
   push:
     branches:
-      - main
+      - master
       - "feature-**"
   pull_request:
     branches:
-      - main
+      - master
 
 jobs:
   test:
