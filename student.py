@@ -57,7 +57,7 @@ def remove_student(roll_no):
     return students.pop(roll_no, None)
 
 
-def search_student(query):
+def search_student(query, limit=None):
     """Search for students by roll number or by (partial, case-insensitive) name.
 
     Passing an int or a digit-string searches by roll number and returns a list
@@ -78,8 +78,8 @@ def search_student(query):
     if not term:
         return []
 
-    return [rec for rec in students.values() if term in rec["name"].lower()]
-
+    matches = [rec for rec in students.values() if term in rec["name"].lower()]
+    return matches[:limit] if limit else matches
 
 def update_student(roll_no, name=None, course=None, marks=None):
     """Update one or more fields of an existing student record.
