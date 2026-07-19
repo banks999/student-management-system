@@ -78,7 +78,7 @@ def search_student(query, limit=None):
     if not term:
         return []
 
-    matches = [rec for rec in students.values() if term in rec["name"]]
+    matches = [rec for rec in students.values() if term in rec["name"].lower()]
     return matches[:limit] if limit else matches
 
 def update_student(roll_no, name=None, course=None, marks=None):
